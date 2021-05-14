@@ -17,7 +17,7 @@ public class CommonUtils {
         animationView.pauseAnimation();
         view.setVisibility(View.GONE);
     }
-    public static void ShowConnectionError(View view)
+    public static void showConnectionError(View view)
     {
         view.setVisibility(View.VISIBLE);
     }

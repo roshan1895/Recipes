@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,8 @@ import com.app.recipes.model.meals.AllMealsResponse;
 import com.app.recipes.model.meals.Meal;
 import com.app.recipes.ui.MealDetailsActivity;
 import com.app.recipes.utils.ApInterface;
+import com.app.recipes.utils.CommonUtils;
+import com.app.recipes.utils.Connection_Check;
 import com.app.recipes.utils.UrlRequest;
 
 import java.util.ArrayList;
@@ -43,6 +46,9 @@ public class FoodFragment extends Fragment implements MealItemAdapter.OnItemClic
     RelativeLayout loader;
     LottieAnimationView animationView;
     RelativeLayout errorLay;
+    Button retryBtn;
+    RelativeLayout somethingWentWrongLayout;
+    Button erroRetryBttn;
 
     @Nullable
     @Override
@@ -53,7 +59,7 @@ public class FoodFragment extends Fragment implements MealItemAdapter.OnItemClic
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        setupRV();
+        initView();
     }
     void initView()
     {
@@ -61,6 +67,10 @@ public class FoodFragment extends Fragment implements MealItemAdapter.OnItemClic
         loader=getView().findViewById(R.id.loader);
         animationView=getView().findViewById(R.id.animationView);
         errorLay=getView().findViewById(R.id.error_lay);
+        retryBtn=getView().findViewById(R.id.retry_btn);
+        erroRetryBttn=getView().findViewById(R.id.retry_btn_error);
+        somethingWentWrongLayout=getView().findViewById(R.id.something_went_error_layout);
+        setupRV();
 
 
     }
@@ -75,7 +85,17 @@ public class FoodFragment extends Fragment implements MealItemAdapter.OnItemClic
         rvMeal=getView().findViewById(R.id.rv_meal);
         rvMeal.hasFixedSize();
         rvMeal.setLayoutManager(new LinearLayoutManager(getActivity()));
-        loadMeals();
+        if(Connection_Check.checkConnection(getActivity()))
+        {
+            loadMeals();
+
+        }
+        else
+        {
+            CommonUtils.hideLoader(animationView,loader);
+            CommonUtils.showConnectionError(errorLay);
+        }
+
     }
     void  loadCategory()
     {
@@ -99,22 +119,37 @@ public class FoodFragment extends Fragment implements MealItemAdapter.OnItemClic
 
     }
     void loadMeals()
-    {
+    {    if(errorLay.getVisibility()==View.VISIBLE)
+         {
+             CommonUtils.hideConnectionError(errorLay);
+         }
+         if(somethingWentWrongLayout.getVisibility()==View.VISIBLE)
+         {
+             CommonUtils.hideWrongError(somethingWentWrongLayout);
+         }
         Call<AllMealsResponse> call=ApInterface.getClient().create(UrlRequest.class).allMeal("Seafood");
         call.enqueue(new Callback<AllMealsResponse>() {
             @Override
             public void onResponse(Call<AllMealsResponse> call, Response<AllMealsResponse> response) {
+              CommonUtils.hideLoader(animationView,loader);
                 if(response.isSuccessful())
                 {  AllMealsResponse allMealsResponse=response.body();
                     mealList=allMealsResponse.getMeals();
                     mealItemAdapter=new MealItemAdapter(getActivity(),mealList,FoodFragment.this);
                     rvMeal.setAdapter(mealItemAdapter);
                 }
+                else
+                {
+                    CommonUtils.showWrongError(somethingWentWrongLayout);
+                }
             }
 
             @Override
             public void onFailure(Call<AllMealsResponse> call, Throwable t) {
                Log.e("meal_response",t.getMessage()+"");
+                CommonUtils.hideLoader(animationView,loader);
+                CommonUtils.showWrongError(somethingWentWrongLayout);
+
             }
         });
     }
@@ -122,6 +157,8 @@ public class FoodFragment extends Fragment implements MealItemAdapter.OnItemClic
     @Override
     public void OnItemClick(int pos, String id, String name) {
         Intent intent=new Intent(getActivity(), MealDetailsActivity.class);
+        intent.putExtra("meal_id",id);
+        intent.putExtra("meal_name",name);
         startActivity(intent);
     }
 }
