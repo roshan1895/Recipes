@@ -44,4 +44,25 @@ public class CommonUtils {
     {
         view.setVisibility(View.GONE);
     }
+    public static boolean checkValue(String string)
+    {
+        if(string!=null)
+        {
+            if(!string.isEmpty())
+            {
+                return  true;
+            }
+            else
+            {
+                return  false;
+
+            }
+        }
+        else
+        {
+            return  false;
+
+        }
+
+    }
 }

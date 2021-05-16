@@ -1,38 +1,62 @@
 
-package com.app.recipes.model.meals.details;
+package com.app.recipes.model.drink.drink.details;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Meal {
+public class Drink {
 
-    @SerializedName("idMeal")
+    @SerializedName("idDrink")
     @Expose
-    private String idMeal;
-    @SerializedName("strMeal")
+    private String idDrink;
+    @SerializedName("strDrink")
     @Expose
-    private String strMeal;
+    private String strDrink;
     @SerializedName("strDrinkAlternate")
     @Expose
-    private Object strDrinkAlternate;
-    @SerializedName("strCategory")
-    @Expose
-    private String strCategory;
-    @SerializedName("strArea")
-    @Expose
-    private String strArea;
-    @SerializedName("strInstructions")
-    @Expose
-    private String strInstructions;
-    @SerializedName("strMealThumb")
-    @Expose
-    private String strMealThumb;
+    private String strDrinkAlternate;
     @SerializedName("strTags")
     @Expose
     private String strTags;
-    @SerializedName("strYoutube")
+    @SerializedName("strVideo")
     @Expose
-    private String strYoutube;
+    private String strVideo;
+    @SerializedName("strCategory")
+    @Expose
+    private String strCategory;
+    @SerializedName("strIBA")
+    @Expose
+    private String strIBA;
+    @SerializedName("strAlcoholic")
+    @Expose
+    private String strAlcoholic;
+    @SerializedName("strGlass")
+    @Expose
+    private String strGlass;
+    @SerializedName("strInstructions")
+    @Expose
+    private String strInstructions;
+    @SerializedName("strInstructionsES")
+    @Expose
+    private String strInstructionsES;
+    @SerializedName("strInstructionsDE")
+    @Expose
+    private String strInstructionsDE;
+    @SerializedName("strInstructionsFR")
+    @Expose
+    private String strInstructionsFR;
+    @SerializedName("strInstructionsIT")
+    @Expose
+    private String strInstructionsIT;
+    @SerializedName("strInstructionsZH-HANS")
+    @Expose
+    private String strInstructionsZHHANS;
+    @SerializedName("strInstructionsZH-HANT")
+    @Expose
+    private String strInstructionsZHHANT;
+    @SerializedName("strDrinkThumb")
+    @Expose
+    private String strDrinkThumb;
     @SerializedName("strIngredient1")
     @Expose
     private String strIngredient1;
@@ -78,21 +102,6 @@ public class Meal {
     @SerializedName("strIngredient15")
     @Expose
     private String strIngredient15;
-    @SerializedName("strIngredient16")
-    @Expose
-    private Object strIngredient16;
-    @SerializedName("strIngredient17")
-    @Expose
-    private Object strIngredient17;
-    @SerializedName("strIngredient18")
-    @Expose
-    private Object strIngredient18;
-    @SerializedName("strIngredient19")
-    @Expose
-    private Object strIngredient19;
-    @SerializedName("strIngredient20")
-    @Expose
-    private Object strIngredient20;
     @SerializedName("strMeasure1")
     @Expose
     private String strMeasure1;
@@ -138,88 +147,41 @@ public class Meal {
     @SerializedName("strMeasure15")
     @Expose
     private String strMeasure15;
-    @SerializedName("strMeasure16")
-    @Expose
-    private Object strMeasure16;
-    @SerializedName("strMeasure17")
-    @Expose
-    private Object strMeasure17;
-    @SerializedName("strMeasure18")
-    @Expose
-    private Object strMeasure18;
-    @SerializedName("strMeasure19")
-    @Expose
-    private Object strMeasure19;
-    @SerializedName("strMeasure20")
-    @Expose
-    private Object strMeasure20;
-    @SerializedName("strSource")
-    @Expose
-    private Object strSource;
     @SerializedName("strImageSource")
     @Expose
-    private Object strImageSource;
+    private String strImageSource;
+    @SerializedName("strImageAttribution")
+    @Expose
+    private String strImageAttribution;
     @SerializedName("strCreativeCommonsConfirmed")
     @Expose
-    private Object strCreativeCommonsConfirmed;
+    private String strCreativeCommonsConfirmed;
     @SerializedName("dateModified")
     @Expose
-    private Object dateModified;
+    private String dateModified;
 
-    public String getIdMeal() {
-        return idMeal;
+    public String getIdDrink() {
+        return idDrink;
     }
 
-    public void setIdMeal(String idMeal) {
-        this.idMeal = idMeal;
+    public void setIdDrink(String idDrink) {
+        this.idDrink = idDrink;
     }
 
-    public String getStrMeal() {
-        return strMeal;
+    public String getStrDrink() {
+        return strDrink;
     }
 
-    public void setStrMeal(String strMeal) {
-        this.strMeal = strMeal;
+    public void setStrDrink(String strDrink) {
+        this.strDrink = strDrink;
     }
 
-    public Object getStrDrinkAlternate() {
+    public String getStrDrinkAlternate() {
         return strDrinkAlternate;
     }
 
-    public void setStrDrinkAlternate(Object strDrinkAlternate) {
+    public void setStrDrinkAlternate(String strDrinkAlternate) {
         this.strDrinkAlternate = strDrinkAlternate;
-    }
-
-    public String getStrCategory() {
-        return strCategory;
-    }
-
-    public void setStrCategory(String strCategory) {
-        this.strCategory = strCategory;
-    }
-
-    public String getStrArea() {
-        return strArea;
-    }
-
-    public void setStrArea(String strArea) {
-        this.strArea = strArea;
-    }
-
-    public String getStrInstructions() {
-        return strInstructions;
-    }
-
-    public void setStrInstructions(String strInstructions) {
-        this.strInstructions = strInstructions;
-    }
-
-    public String getStrMealThumb() {
-        return strMealThumb;
-    }
-
-    public void setStrMealThumb(String strMealThumb) {
-        this.strMealThumb = strMealThumb;
     }
 
     public String getStrTags() {
@@ -230,12 +192,108 @@ public class Meal {
         this.strTags = strTags;
     }
 
-    public String getStrYoutube() {
-        return strYoutube;
+    public String getStrVideo() {
+        return strVideo;
     }
 
-    public void setStrYoutube(String strYoutube) {
-        this.strYoutube = strYoutube;
+    public void setStrVideo(String strVideo) {
+        this.strVideo = strVideo;
+    }
+
+    public String getStrCategory() {
+        return strCategory;
+    }
+
+    public void setStrCategory(String strCategory) {
+        this.strCategory = strCategory;
+    }
+
+    public String getStrIBA() {
+        return strIBA;
+    }
+
+    public void setStrIBA(String strIBA) {
+        this.strIBA = strIBA;
+    }
+
+    public String getStrAlcoholic() {
+        return strAlcoholic;
+    }
+
+    public void setStrAlcoholic(String strAlcoholic) {
+        this.strAlcoholic = strAlcoholic;
+    }
+
+    public String getStrGlass() {
+        return strGlass;
+    }
+
+    public void setStrGlass(String strGlass) {
+        this.strGlass = strGlass;
+    }
+
+    public String getStrInstructions() {
+        return strInstructions;
+    }
+
+    public void setStrInstructions(String strInstructions) {
+        this.strInstructions = strInstructions;
+    }
+
+    public String getStrInstructionsES() {
+        return strInstructionsES;
+    }
+
+    public void setStrInstructionsES(String strInstructionsES) {
+        this.strInstructionsES = strInstructionsES;
+    }
+
+    public String getStrInstructionsDE() {
+        return strInstructionsDE;
+    }
+
+    public void setStrInstructionsDE(String strInstructionsDE) {
+        this.strInstructionsDE = strInstructionsDE;
+    }
+
+    public String getStrInstructionsFR() {
+        return strInstructionsFR;
+    }
+
+    public void setStrInstructionsFR(String strInstructionsFR) {
+        this.strInstructionsFR = strInstructionsFR;
+    }
+
+    public String getStrInstructionsIT() {
+        return strInstructionsIT;
+    }
+
+    public void setStrInstructionsIT(String strInstructionsIT) {
+        this.strInstructionsIT = strInstructionsIT;
+    }
+
+    public String getStrInstructionsZHHANS() {
+        return strInstructionsZHHANS;
+    }
+
+    public void setStrInstructionsZHHANS(String strInstructionsZHHANS) {
+        this.strInstructionsZHHANS = strInstructionsZHHANS;
+    }
+
+    public String getStrInstructionsZHHANT() {
+        return strInstructionsZHHANT;
+    }
+
+    public void setStrInstructionsZHHANT(String strInstructionsZHHANT) {
+        this.strInstructionsZHHANT = strInstructionsZHHANT;
+    }
+
+    public String getStrDrinkThumb() {
+        return strDrinkThumb;
+    }
+
+    public void setStrDrinkThumb(String strDrinkThumb) {
+        this.strDrinkThumb = strDrinkThumb;
     }
 
     public String getStrIngredient1() {
@@ -358,46 +416,6 @@ public class Meal {
         this.strIngredient15 = strIngredient15;
     }
 
-    public Object getStrIngredient16() {
-        return strIngredient16;
-    }
-
-    public void setStrIngredient16(Object strIngredient16) {
-        this.strIngredient16 = strIngredient16;
-    }
-
-    public Object getStrIngredient17() {
-        return strIngredient17;
-    }
-
-    public void setStrIngredient17(Object strIngredient17) {
-        this.strIngredient17 = strIngredient17;
-    }
-
-    public Object getStrIngredient18() {
-        return strIngredient18;
-    }
-
-    public void setStrIngredient18(Object strIngredient18) {
-        this.strIngredient18 = strIngredient18;
-    }
-
-    public Object getStrIngredient19() {
-        return strIngredient19;
-    }
-
-    public void setStrIngredient19(Object strIngredient19) {
-        this.strIngredient19 = strIngredient19;
-    }
-
-    public Object getStrIngredient20() {
-        return strIngredient20;
-    }
-
-    public void setStrIngredient20(Object strIngredient20) {
-        this.strIngredient20 = strIngredient20;
-    }
-
     public String getStrMeasure1() {
         return strMeasure1;
     }
@@ -518,75 +536,35 @@ public class Meal {
         this.strMeasure15 = strMeasure15;
     }
 
-    public Object getStrMeasure16() {
-        return strMeasure16;
-    }
-
-    public void setStrMeasure16(Object strMeasure16) {
-        this.strMeasure16 = strMeasure16;
-    }
-
-    public Object getStrMeasure17() {
-        return strMeasure17;
-    }
-
-    public void setStrMeasure17(Object strMeasure17) {
-        this.strMeasure17 = strMeasure17;
-    }
-
-    public Object getStrMeasure18() {
-        return strMeasure18;
-    }
-
-    public void setStrMeasure18(Object strMeasure18) {
-        this.strMeasure18 = strMeasure18;
-    }
-
-    public Object getStrMeasure19() {
-        return strMeasure19;
-    }
-
-    public void setStrMeasure19(Object strMeasure19) {
-        this.strMeasure19 = strMeasure19;
-    }
-
-    public Object getStrMeasure20() {
-        return strMeasure20;
-    }
-
-    public void setStrMeasure20(Object strMeasure20) {
-        this.strMeasure20 = strMeasure20;
-    }
-
-    public Object getStrSource() {
-        return strSource;
-    }
-
-    public void setStrSource(Object strSource) {
-        this.strSource = strSource;
-    }
-
-    public Object getStrImageSource() {
+    public String getStrImageSource() {
         return strImageSource;
     }
 
-    public void setStrImageSource(Object strImageSource) {
+    public void setStrImageSource(String strImageSource) {
         this.strImageSource = strImageSource;
     }
 
-    public Object getStrCreativeCommonsConfirmed() {
+    public String getStrImageAttribution() {
+        return strImageAttribution;
+    }
+
+    public void setStrImageAttribution(String strImageAttribution) {
+        this.strImageAttribution = strImageAttribution;
+    }
+
+    public String getStrCreativeCommonsConfirmed() {
         return strCreativeCommonsConfirmed;
     }
 
-    public void setStrCreativeCommonsConfirmed(Object strCreativeCommonsConfirmed) {
+    public void setStrCreativeCommonsConfirmed(String strCreativeCommonsConfirmed) {
         this.strCreativeCommonsConfirmed = strCreativeCommonsConfirmed;
     }
 
-    public Object getDateModified() {
+    public String getDateModified() {
         return dateModified;
     }
 
-    public void setDateModified(Object dateModified) {
+    public void setDateModified(String dateModified) {
         this.dateModified = dateModified;
     }
 

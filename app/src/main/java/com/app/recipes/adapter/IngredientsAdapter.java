@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,15 +15,16 @@ import com.app.recipes.model.Ingredient;
 import com.bumptech.glide.Glide;
 import com.makeramen.roundedimageview.RoundedImageView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.MyViewHolder> {
     Context context;
     List<Ingredient> ingredientList;
-    public IngredientsAdapter(Context context,List<Ingredient> ingredientList)
+    public IngredientsAdapter(Context context)
     {
         this.context=context;
-        this.ingredientList=ingredientList;
+        ingredientList=new ArrayList<>();
     }
     @NonNull
     @Override
@@ -44,7 +46,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        RoundedImageView ingr_img;
+        ImageView ingr_img;
         TextView ingr_name,ingr_qty;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -53,4 +55,33 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
             ingr_qty=itemView.findViewById(R.id.qty_tv);
         }
     }
+    public void add(Ingredient r) {
+        ingredientList.add(r);
+        notifyItemInserted(ingredientList.size() - 1);
+    }
+
+    public void addAll(List<Ingredient> moveResults) {
+        for (Ingredient result : moveResults) {
+            add(result);
+        }
+    }
+
+    public void remove(Ingredient r) {
+        int position = ingredientList.indexOf(r);
+        if (position > -1) {
+            ingredientList.remove(position);
+            notifyItemRemoved(position);
+        }
+    }
+
+    public void clear() {
+        while (getItemCount() > 0) {
+            remove(getItem(0));
+        }
+    }
+
+    public Ingredient getItem(int position) {
+        return ingredientList.get(position);
+    }
+
 }

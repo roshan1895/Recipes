@@ -1,7 +1,8 @@
-package com.app.recipes;
+package com.app.recipes.ui;
 
 import android.os.Bundle;
 
+import com.app.recipes.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        setupNav();
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 

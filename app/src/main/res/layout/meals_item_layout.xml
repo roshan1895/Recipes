@@ -10,8 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="180dp"
     android:scaleType="centerCrop"
-    app:riv_corner_radius="10dp"
-    android:src="@drawable/truck_image_new"/>
+    app:riv_corner_radius="10dp" />
     <TextView
         android:id="@+id/meal_title"
         android:layout_width="match_parent"

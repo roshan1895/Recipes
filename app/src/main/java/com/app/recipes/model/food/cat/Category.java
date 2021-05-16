@@ -1,5 +1,5 @@
 
-package com.app.recipes.model.categories;
+package com.app.recipes.model.food.cat;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
